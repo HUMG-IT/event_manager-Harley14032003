@@ -20,7 +20,7 @@ class _EventDetailViewState extends State<EventDetailView> {
   void initState() {
     super.initState();
     subjectController.text = widget.event.subject;
-    noteController.text = widget.event.note ?? '';
+    noteController.text = widget.event.notes ?? '';
   }
 
   Future<void> _pickDateTime({required bool isStartTime}) async {
@@ -67,7 +67,7 @@ class _EventDetailViewState extends State<EventDetailView> {
 
   Future<void> _saveEvent() async {
     widget.event.subject = subjectController.text;
-    widget.event.note = noteController.text;
+    widget.event.notes = noteController.text;
     await eventService.saveEvent(widget.event);
     if (mounted) {
       Navigator.of(context).pop(true);

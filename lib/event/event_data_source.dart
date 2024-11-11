@@ -34,7 +34,7 @@ class EventDataSource extends CalendarDataSource {
   @override
   String? getNotes(int index) {
     EventModel event = appointments!.elementAt(index);
-    return event.note;
+    return event.notes;
   }
 
   @override

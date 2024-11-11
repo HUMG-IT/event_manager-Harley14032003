@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:event_manager/main.dart';
 import 'package:event_manager/event/event_view.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 void main() {
   testWidgets('MainApp khởi chạy và hiển thị EventView',

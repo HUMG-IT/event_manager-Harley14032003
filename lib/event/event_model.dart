@@ -8,7 +8,7 @@ class EventModel {
   DateTime endTime;
   bool isAllDay;
   String subject;
-  String? note;
+  String? notes;
   String? recurrenceRule;
   EventModel({
     this.id,
@@ -16,7 +16,7 @@ class EventModel {
     required this.endTime,
     this.isAllDay = false,
     this.subject = '',
-    this.note,
+    this.notes,
     this.recurrenceRule,
   });
 
@@ -26,7 +26,7 @@ class EventModel {
     DateTime? endTime,
     bool? isAllDay,
     String? subject,
-    ValueGetter<String?>? note,
+    ValueGetter<String?>? notes,
     ValueGetter<String?>? recurrenceRule,
   }) {
     return EventModel(
@@ -35,7 +35,7 @@ class EventModel {
       endTime: endTime ?? this.endTime,
       isAllDay: isAllDay ?? this.isAllDay,
       subject: subject ?? this.subject,
-      note: note != null ? note() : this.note,
+      notes: notes != null ? notes() : this.notes,
       recurrenceRule:
           recurrenceRule != null ? recurrenceRule() : this.recurrenceRule,
     );
@@ -48,7 +48,7 @@ class EventModel {
       'endTime': endTime.millisecondsSinceEpoch,
       'isAllDay': isAllDay,
       'subject': subject,
-      'note': note,
+      'notes': notes,
       'recurrenceRule': recurrenceRule,
     };
   }
@@ -60,7 +60,7 @@ class EventModel {
       endTime: DateTime.fromMillisecondsSinceEpoch(map['endTime']),
       isAllDay: map['isAllDay'] ?? false,
       subject: map['subject'] ?? '',
-      note: map['note'],
+      notes: map['notes'],
       recurrenceRule: map['recurrenceRule'],
     );
   }
@@ -72,7 +72,7 @@ class EventModel {
 
   @override
   String toString() {
-    return 'EventModel(id: $id, startTime: $startTime, endTime: $endTime, isAllDay: $isAllDay, subject: $subject, note: $note, recurrenceRule: $recurrenceRule)';
+    return 'EventModel(id: $id, startTime: $startTime, endTime: $endTime, isAllDay: $isAllDay, subject: $subject, notes: $notes, recurrenceRule: $recurrenceRule)';
   }
 
   @override
@@ -85,7 +85,7 @@ class EventModel {
         other.endTime == endTime &&
         other.isAllDay == isAllDay &&
         other.subject == subject &&
-        other.note == note &&
+        other.notes == notes &&
         other.recurrenceRule == recurrenceRule;
   }
 
@@ -96,7 +96,7 @@ class EventModel {
         endTime.hashCode ^
         isAllDay.hashCode ^
         subject.hashCode ^
-        note.hashCode ^
+        notes.hashCode ^
         recurrenceRule.hashCode;
   }
 }
